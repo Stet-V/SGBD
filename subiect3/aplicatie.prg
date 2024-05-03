@@ -6,7 +6,7 @@ LIST ALL
 
 SORT TO bilete1.dbf ON destinatie
 USE bilete1.dbf
-LIST FIELDS destinatie FOR clasa<>'II'
+LIST FIELDS destinatie FOR clasa <> 'II'
 USE bilete.dbf
 
 INPUT 'Luna: ' to x
