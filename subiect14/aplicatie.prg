@@ -15,6 +15,6 @@ BROWSE
 USE scoli.dbf
 ACCEPT 'Nivel: ' to x
 SUM elevi TO y FOR nivel = x
-?'Numarul total elevilor pentru nivelul dat: ', y
+?'Numarul total al elevilor pentru nivelul dat: ', y
 
 CLOSE ALL
