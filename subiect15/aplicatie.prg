@@ -10,3 +10,5 @@ COUNT TO x FOR (SUBSTR(cnp, 1, 1) = '2' OR SUBSTR(cnp, 1, 1) = '6')
 
 INPUT 'An: ' to y
 LIST FIELDS nume, cod FOR YEAR(data) = y
+
+CLOSE ALL
