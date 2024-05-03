@@ -1,13 +1,17 @@
 USE tranzactii.dbf
 
-INPUT 'Suma: ' TO x
-LIST FIELDS nume FOR operatie = 'Cumparare' AND suma > x
+INPUT 'Suma de bani: ' TO x
+BROWSE FIELDS nume FOR operatie = 'Cumparare' AND suma > x
 
-INSERT INTO tranzactii.dbf (nume, operatie, valuta, curs, suma);
-   VALUES ('Julius Caesar', 'Cumparare', 'Dolar', 4.75, 10000.00)
-LIST ALL
+ACCEPT 'Numele persoanei: ' TO a
+ACCEPT 'Tipul operatiei: ' TO b
+ACCEPT 'Tipul valutei: ' TO c
+INPUT 'Cursul zilnic: ' TO d
+INPUT 'Suma de bani: ' TO e
+INSERT INTO tranzactii.dbf (nume, operatie, valuta, curs, suma) VALUES (a, b, c, d, e)
+BROWSE
 
 SUM suma FOR operatie = 'Cumparare' TO y
-?y
+?'Suma totala: ', y
 
 CLOSE ALL

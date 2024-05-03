@@ -1,14 +1,16 @@
 USE personalitati.dbf
 
-INSERT INTO personalitati.dbf (nume, domeniu, tara, varsta);
-	VALUES ('Cristina Ionescu', 'Cultura', 'Romania', 47)
-LIST ALL
+ACCEPT 'Nume: ' TO a
+ACCEPT 'Domeniul activitatii: ' TO b
+ACCEPT 'Tara de origine: ' TO c
+INPUT 'Varsta: ' TO d
+INSERT INTO personalitati.dbf (nume, domeniu, tara, varsta) VALUES (a, b, c, d)
+BROWSE
 
 ACCEPT 'Tara: ' to x
-LIST ALL for tara = x
+BROWSE FOR tara = x
 
-SUM varsta TO y FOR domeniu = 'Afaceri'
-COUNT TO z FOR domeniu = 'Afaceri'
-?y/z
+CALCULATE AVG(varsta) TO y FOR domeniu = 'afaceri'
+?'Varsta medie pe domeniul "afaceri": ', y
 
 CLOSE ALL

@@ -2,13 +2,16 @@ USE agenda.dbf
 
 x = 0
 COUNT TO x FOR DAY(data) = DAY(DATE()) AND MONTH(data) = MONTH(DATE())
-?x
+?'Numarul persoanelor care isi sarbatoresc data nasterii azi: ', x
 
-INSERT INTO agenda.dbf (nume, data, localitate, telefon);
-	VALUES ('Alexandra Pop', {^1989/06/12}, 'Bacau', 0722123457)
-LIST ALL
+ACCEPT 'Nume: ' TO a
+ACCEPT 'Data nasterii: ' TO b
+ACCEPT 'Localitate de domiciliu: ' TO c
+INPUT 'Telefon mobil: ' TO d
+INSERT INTO agenda.dbf (nume, data, localitate, telefon) VALUES (a, CTOD(b), c, d)
+BROWSE
 
 ACCEPT 'Localitate: ' to y
-LIST FIELDS telefon FOR localitate = y AND SUBSTR(nume, 1, 1) = 'L'
+BROWSE FIELDS telefon FOR localitate = y AND SUBSTR(nume, 1, 1) = 'L'
 
 CLOSE ALL

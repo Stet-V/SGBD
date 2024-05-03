@@ -1,13 +1,16 @@
 USE someri.dbf
 
 ACCEPT 'Profesie: ' TO x
-LIST FIELDS ALL FOR profesie = x AND sex = 'Feminin'
+BROWSE FOR profesie = x AND sex = 'Feminin'
 
-INSERT INTO someri.dbf (nume, sex, varsta, profesie);
-   VALUES ('Julius Caesar', 'Masculin', 55, 'General')
-LIST ALL
+ACCEPT 'Nume: ' TO a
+ACCEPT 'Sex: ' TO b
+INPUT 'Varsta: ' TO c
+ACCEPT 'Profesie: ' TO d
+INSERT INTO someri.dbf (nume, sex, varsta, profesie) VALUES (a, b, c, d)
+BROWSE
 
 CALCULATE MAX(varsta) TO y
-LIST FIELDS ALL FOR varsta = y
+BROWSE FOR varsta = y
 
 CLOSE ALL

@@ -1,16 +1,19 @@
 USE tari.dbf
 
-INSERT INTO tari.dbf (denumire, continent, capitala, locuitori);
-	VALUES ('Australia', 'Australia', 'Canberra', 25000000)
-LIST ALL
+ACCEPT 'Denumirea tarii: ' TO a
+ACCEPT 'Continentul in care se afla: ' TO b
+ACCEPT 'Capitala: ' TO c
+INPUT 'Numar locuitori: ' TO d
+INSERT INTO tari.dbf (denumire, continent, capitala, locuitori) VALUES (a, b, c, d)
+BROWSE
 
 ACCEPT 'Continent: ' to x
 y = 0
 COUNT TO y FOR continent = x
-?y
+?'Numarul de tari de pe continent in tabela: ', y
 
 SORT TO tari1.dbf ON locuitori /D
 USE tari1.dbf
-LIST FIELDS denumire, capitala
+BROWSE FIELDS denumire, capitala
 
 CLOSE ALL

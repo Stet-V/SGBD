@@ -1,14 +1,17 @@
 USE impozite.dbf
 
-INSERT INTO impozite.dbf (nume, locuinta, impozit, achitat);
-	VALUES ('Ioana Tudor', 'casa', 2901, 1301)
-LIST ALL
+ACCEPT 'Nume: ' TO a
+ACCEPT 'Tip locuinta: ' TO b
+INPUT 'Impozit: ' TO c
+INPUT 'Impozit achitat: ' TO d
+INSERT INTO impozite.dbf (nume, locuinta, impozit, achitat) VALUES (a, b, c, d)
+BROWSE
 
 SUM achitat TO x
-?x
+?'Suma incasata: ', x
 
 SORT TO impozite1.dbf ON nume
 USE impozite1.dbf
-LIST ALL for locuinta = 'casa' OR locuinta = 'vila'
+BROWSE for locuinta = 'casa' OR locuinta = 'vila'
 
 CLOSE ALL

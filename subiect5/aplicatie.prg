@@ -1,14 +1,18 @@
 USE arondati.dbf
 
-INSERT INTO arondati.dbf (cnp, nume, adresa, diagnostic, consult);
-   VALUES (3456789012345, 'John Smith', 'Str. Secreta', 'Plictiseala', {^2024/04/05})
-LIST ALL
+INPUT 'CNP: ' TO a
+ACCEPT 'Nume: ' TO b
+ACCEPT 'Adresa: ' TO c
+ACCEPT 'Ultimul diagnostic: ' TO d
+ACCEPT 'Data ultimului consult: ' TO e
+INSERT INTO arondati.dbf (numar, destinatie, clasa, pret, tren, data) VALUES (a, b, c, d, CTOD(e))
+BROWSE
 
-LIST FIELDS nume, diagnostic FOR MONTH(consult) = MONTH(DATE())
+BROWSE FIELDS nume, diagnostic FOR MONTH(consult) = MONTH(DATE())
 
 ACCEPT 'Diagnostic: ' to x
 y = 0
 COUNT TO y FOR diagnostic = x
-?y
+?'Numar persoane: ', y
 
 CLOSE ALL
